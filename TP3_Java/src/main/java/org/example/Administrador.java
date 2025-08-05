@@ -65,6 +65,7 @@ public class Administrador extends Usuario {
             while ((linha = leitor.readNext()) != null) {
                 int id = Integer.parseInt(linha[0]);
                 if (id != idRemover) {
+
                     usuariosAtualizados.add(linha);
                 } 
             }
@@ -78,5 +79,25 @@ public class Administrador extends Usuario {
             System.out.println("Erro ao remover usuário: " + e.getMessage());
         }
         //proximamente irei desenvolver mais medidas para casos de uso inesperado do sistema!!!!!!
+    }
+
+
+    public void adicionarUsuario(Usuario usuario) {
+        try (CSVWriter writer = new CSVWriter(new FileWriter(CSV_PATH, true))) { // 'true' para modo append
+            String[] novaLinha = {
+                    String.valueOf(usuario.getIDUsuario()),
+                    usuario.getNomeCompleto(),
+                    usuario.getCpf(),
+                    usuario.getNumeroCelular(),
+                    usuario.getEmail(),
+                    usuario.getSenha(),
+                    usuario.getNivelAcesso(),
+                    usuario.getCargo()
+            };
+            writer.writeNext(novaLinha);
+            System.out.println("Usuário adicionado com sucesso: " + usuario.getNomeCompleto());
+        } catch (Exception e) {
+            System.out.println("Erro ao adicionar usuário: " + e.getMessage());
+        }
     }
 }
