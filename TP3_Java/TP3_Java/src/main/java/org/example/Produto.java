@@ -17,6 +17,27 @@ public class Produto {
         this.valorUnitario = valorUnitario;
     }
 
+    public int getIdPedido() {
+        return idPedido;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public double getPesoUnitarioProduto() {
+        return pesoUnitarioProduto;
+    }
+
+    public int getQuantidadeSolicitada() {
+        return quantidadeSolicitada;
+    }
+
+    public double getValorUnitario() {
+        return valorUnitario;
+    }
+
+
     @Override
     public String toString() {
         return "Produto{" +
