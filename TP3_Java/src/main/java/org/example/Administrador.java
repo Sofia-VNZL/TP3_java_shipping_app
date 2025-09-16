@@ -84,7 +84,7 @@ public class Administrador extends Usuario {
                 if (id != idRemover) {
 
                     usuariosAtualizados.add(linha);
-                } 
+                }
             }
 
             try (CSVWriter escritor = new CSVWriter(new FileWriter(Util.CSV_PATH))) {

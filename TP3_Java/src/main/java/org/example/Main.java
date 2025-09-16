@@ -3,13 +3,21 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("-----Sistema de Pedidos-----");
-        Usuario usuarioLogado = Usuario.login();
+        Thread servidorThread = new Thread(() -> Servidor.main(null));
+        servidorThread.start();
 
-        if (usuarioLogado == null) {
-            System.out.println("Encerrando o sistema... ");
+
+        try {
+            Thread.sleep(1000); // 1 segundo
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
 
+        try {
+            ClienteCLI.main(null);
+        } catch (Exception e) {
+            System.out.println("Erro ao iniciar cliente: " + e.getMessage());
+        }
     }
 }

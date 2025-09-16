@@ -5,4 +5,5 @@ IDPedido,CPFCliente,DataPedido,Status,NomeProduto,QuantidadeSolicitada,ValorUnit
 2,999.000.111-22,2025-09-11,Fechado,Monitor,1,1200.00,150.00
 3,777.888.999-00,2025-09-12,Fechado,Cadeira Gamer,1,950.00,950.00
 4,602.035.880-10,2025-09-13,Fechado,Mousepad,3,25.00,75.00
-4,602.035.880-10,2025-09-13,Fechado,Headset,1,300.00,75.001,777.888.999-00,2025-09-14,Fechado,Camiseta Básica,2,39.9,79.8
+0,fernanda.c@email.com,2025-09-15,Fechado,Camiseta Básica,2,0.0,0.0
+0,fernanda.c@email.com,2025-09-15,Fechado,Camiseta Básica,2,0.0,0.0

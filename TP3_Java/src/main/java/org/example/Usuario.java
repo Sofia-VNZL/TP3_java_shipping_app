@@ -181,7 +181,7 @@ public abstract class Usuario {
 
                     Usuario usuarioLogado;
 
-                    switch (linha[6]) { // linha[6] é o nível de acesso
+                    switch (linha[6]) {
                         case "Cliente":
                             usuarioLogado = new Cliente(
                                     Integer.parseInt(linha[0]), linha[1], linha[2], linha[3],
@@ -216,6 +216,41 @@ public abstract class Usuario {
         return null;
     }
 
-}
+    public static Usuario buscarUsuario(String identificador, String senhaDigitada) {
+        try (CSVReader leitor = new CSVReader(new FileReader(Util.CSV_PATH))) {
+            leitor.readNext();
+            String[] linha;
 
+            while ((linha = leitor.readNext()) != null) {
+                String cpf = linha[2].trim();
+                String email = linha[4].trim();
+                String senha = linha[5].trim();
+                String nivel = linha[6].trim();
+                String cargo = linha[7].trim();
+
+                if ((identificador.equalsIgnoreCase(cpf) || identificador.equalsIgnoreCase(email)) &&
+                        senhaDigitada.equals(senha)) {
+
+                    int id = Integer.parseInt(linha[0].trim());
+                    String nome = linha[1].trim();
+                    String celular = linha[3].trim();
+
+                    switch (nivel) {
+                        case "Cliente":
+                            return new Cliente(id, nome, cpf, celular, email, senha, nivel, cargo);
+                        case "Administrador":
+                            return new Administrador(id, nome, cpf, celular, email, senha, nivel, cargo);
+                        default:
+                            return null;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao buscar usuário: " + e.getMessage());
+        }
+
+        return null;
+    }
+
+}
 

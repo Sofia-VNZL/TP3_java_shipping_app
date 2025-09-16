@@ -2,10 +2,7 @@ package org.example;
 
 import com.opencsv.CSVReader;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,26 +62,23 @@ public class Produto {
                 '}';
     }
 
-    static List<Produto> carregarCatalogoCSV(String caminhoCSV) {
-        List<Produto> catalogo = new ArrayList<>();
-        try (CSVReader reader = new CSVReader(new FileReader(caminhoCSV))) {
-            reader.readNext();
-
-            String[] linha;
-            while ((linha = reader.readNext()) != null) {
-                Produto p = new Produto(
-                        Integer.parseInt(linha[0]),
-                        linha[1],
-                        Double.parseDouble(linha[2]),
-                        Integer.parseInt(linha[3]),
-                        Double.parseDouble(linha[4])
-                );
-                catalogo.add(p);
+    public static List<Produto> carregarCatalogoCSV(String caminho) {
+        List<Produto> produtos = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(caminho))) {
+            String linha;
+            br.readLine();
+            while ((linha = br.readLine()) != null) {
+                String[] partes = linha.split(",");
+                String nome = partes[1];
+                double peso = Double.parseDouble(partes[2]);
+                int qtd = Integer.parseInt(partes[3]);
+                double valor = Double.parseDouble(partes[4]);
+                produtos.add(new Produto(0, nome, peso, qtd, valor));
             }
         } catch (Exception e) {
-            System.out.println("Erro ao carregar catálogo de produtos: " + e.getMessage());
+            e.printStackTrace();
         }
-        return catalogo;
+        return produtos;
     }
 
 
