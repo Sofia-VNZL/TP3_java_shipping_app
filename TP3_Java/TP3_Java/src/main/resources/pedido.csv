@@ -1,4 +1,0 @@
-IDPedido,IDUsuario,DataPedido,Status,IDProduto,Quantidade,ValorTotal
-1001,1,2025-08-30,Pendente,2,1,4299.00
-1002,3,2025-08-31,Confirmado,1,2,79.80
-1003,2,2025-08-31,Cancelado,3,4,98.00
