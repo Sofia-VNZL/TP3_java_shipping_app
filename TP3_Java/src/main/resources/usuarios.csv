@@ -1,7 +1,0 @@
-IDUsuario,NomeCompleto,CPF,NumeroCelular,Email,Senha,NivelAcesso,Cargo
-"1","Ana Silva","111.222.333-44","51987654321","ana.silva@email.com","senha123","Administrador","Gerente"
-"2","Fernanda Costa","777.888.999-00","51987654325","fernanda.c@email.com","senhaxyz","Cliente","N/A"
-"3","Mariana Oliveira","999.000.111-22","51987654323","mariana.o@email.com","senha789","Cliente","N/A"
-"4","Pedro Souza","333.444.555-66","51987654324","pedro.s@email.com","senhaabc","Colaborador","Entregador"
-"5","Fernanda Costa","777.888.999-00","51987654325","fernanda.c@email.com","senhaxyz","Cliente","N/A"
-"6","Sofia Valera","602.035.880-10","51999020801","sofiaelena082001@gmail.com","senha","Administrador","Técnico"
